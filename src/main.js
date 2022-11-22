@@ -1,36 +1,5 @@
 let shop = document.getElementById("shop");
 
-let shopItemsData = [
-  {
-    id: "lorem",
-    name: "Casual Shirt",
-    price: 45,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing.",
-    img: "images/img-1.jpg",
-  },
-  {
-    id: "jhgfds",
-    name: "Ofice Shirt",
-    price: 100,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing.",
-    img: "images/img-2.jpg",
-  },
-  {
-    id: "mnbvdf",
-    name: "T-Shirt",
-    price: 25,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing.",
-    img: "images/img-3.jpg",
-  },
-  {
-    id: "wdfkjn",
-    name: "Suit",
-    price: 300,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipisicing.",
-    img: "images/img-4.jpg",
-  },
-];
-
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 let generateShop = () => {
@@ -74,7 +43,7 @@ let increment = (id) => {
   } else {
     search.item += 1;
   }
-  
+
   // console.log(basket);
   update(selectedItem.id);
 
@@ -90,10 +59,9 @@ let decrement = (id) => {
   else {
     search.item -= 1;
   }
-
+  update(selectedItem.id);
   basket = basket.filter((x) => x.item != 0);
   // console.log(basket);
-  update(selectedItem.id);
 
   localStorage.setItem("data", JSON.stringify(basket));
 };
